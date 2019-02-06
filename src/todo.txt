@@ -1,0 +1,22 @@
+Styling!
+
+
+sidebar
+-progress
+ -100% wide radiobuttons to show progress
+ -with save progress button for no missclick spoilers
+-categories
+ -get in categories for current bookseries
+ -good arrodrian thing
+
+
+restructure header
+structure footer o.o
+
+
+
+
+
+Big boy changes: 
+Edit
+Database/backend 
