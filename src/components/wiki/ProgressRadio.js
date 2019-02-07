@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export default function ProgressRadio(props) {
     return (
@@ -10,3 +11,10 @@ export default function ProgressRadio(props) {
 
     )
 }
+
+ProgressRadio.propTypes = {
+    bookseries: PropTypes.array.isRequired,
+    book: PropTypes.object.isRequired,
+    progressChange: PropTypes.func,
+    currentChecked: PropTypes.number,
+};

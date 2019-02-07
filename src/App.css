@@ -1,3 +1,5 @@
+/* Import styles for accordion here so i can override them in this file*/
+@import 'imports/css/accordion-fancy.css';
 
 /* --------- */
 /* reset_css */
@@ -87,10 +89,14 @@ body > #root > div {
 }
 
 .progress-ul li {
-  float: left;
+  /* float: left; */
   width: 12rem;
-  position: relative;
+  /* position: relative; */
   text-align: center;
+}
+
+.progress-ul li:last-child {
+  margin-bottom: 1rem;
 }
 
 .progress-ul input, .progress-ul label {
@@ -114,4 +120,62 @@ body > #root > div {
 }
 
 
+/* category-css */
+
+
+.accordion {
+
+}
+
+.accordion__item {
+  cursor: pointer;
+  
+}
+
+.accordion__title {
+  height: 2rem;
+  padding: .5rem;
+  margin: auto;
+  font-size: .8rem;
+
+}
+
+.accordion__body {
+  padding: .5rem 1rem;
+  margin: auto;
+}
+
+
+
+.category-link {
+  display: block;
+  color: #325fa8;
+  text-decoration: underline;
+}
+
+.accordion__item {
+    position: relative;
+}
+.accordion__arrow {
+    display: inline-block;
+    width: 24px;
+    height: 12px;
+    position: absolute;
+    top: 1rem;
+    right: .4rem;
+    color: #555;
+}
+
+.accordion__arrow::after,
+.accordion__arrow::before {
+    width: 8px;
+    height: 2px;
+}
+
+.accordion__arrow::before {
+    left: 6px;
+}
+.accordion__arrow::after {
+    right: 6px;
+}
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function Wikis(props) {
     const bookseries = props.bookseries.map((x) =>
@@ -14,4 +15,8 @@ export default function Wikis(props) {
         </div>
     )
 }
+Wikis.propTypes = {
+    bookseries: PropTypes.array.isRequired,
+};
+
 
