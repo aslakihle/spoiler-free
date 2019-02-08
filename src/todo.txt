@@ -1,5 +1,0 @@
-
-active content in categories
-/wiki/12309102/123123 breaks it, make it check if IDs in URL exists else return error msg
-
-

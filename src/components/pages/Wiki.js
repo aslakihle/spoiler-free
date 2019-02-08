@@ -9,12 +9,6 @@ import WikiContent from '../wiki/WikiContent';
 
 
 class Wiki extends Component {
-    // constructor(props) {
-    //     super(props);
-
-    // this.textContent = React.createRef();
-    // this.myRef = React.createRef();
-    // }
     state = {
         currentBooks: [],
         currentChecked: 0,
@@ -37,6 +31,7 @@ class Wiki extends Component {
         this.setState({ currentBooks })
     }
 
+    //Starts hover effect for progress input, effect happens on all books up to and including the hovered book
     progressMouseEnter = (e) => {
         const labels = document.querySelectorAll('.progress-ul li:nth-child(-n+' + e.target.id + ') label')
         console.log(labels)
@@ -45,6 +40,7 @@ class Wiki extends Component {
             label.classList.add('label-hover')
         }
     }
+    //Ends hover effect from previous function
     progressMouseLeave = (e) => {
         const labels = document.querySelectorAll('.progress-ul li:nth-child(-n+' + e.target.id + ') label')
         for (const label of labels) {
@@ -63,15 +59,11 @@ class Wiki extends Component {
                 }, () => {
                     for (let index = 1; index <= this.props.bookseries[0].books; index++) {
                         let label = document.getElementsByClassName('book' + index)[0]
-                        // console.log('progressChange() label: ')
-                        // console.log(label)
                         if (index <= this.state.currentChecked) {
-                            // label.style.backgroundColor = '#325fa8';
                             label.classList.add('progress-checked')
                         }
                         else {
                             label.classList.remove('progress-checked')
-                            // label.style.backgroundColor = '#777';
                         }
                     }
                     this.changeContent()
@@ -101,7 +93,6 @@ class Wiki extends Component {
     render() {
         return (
             <div className="wrapper wiki-wrapper">
-
                 <div className="sidebar">
                     <ProgressForm
                         bookseries={this.props.bookseries}
@@ -111,7 +102,6 @@ class Wiki extends Component {
                         progressChange={this.progressChange}
                         progressMouseEnter={this.progressMouseEnter}
                         progressMouseLeave={this.progressMouseLeave}
-
                     />
                     <Categories
                         bookseries={this.props.bookseries}

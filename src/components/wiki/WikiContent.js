@@ -3,6 +3,8 @@ import Parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 
 export class WikiContent extends Component {
+
+    //Make sure the correct text content is shown if you only jump between topics
     componentDidMount() {
         this.props.changeContent()
     }
