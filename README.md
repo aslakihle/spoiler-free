@@ -12,3 +12,5 @@ Smaller todos/issues:
 - Proper fonts, and implementation
 - /wiki/123/123 currently breaks the page, there are no checks if the URL parameters exist in 'database', only occurs if you edit URL
 - Add active/current both in header links and for topics
+
+A live version can be found at [https://aslakihle.no/](https://aslakihle.no/)
