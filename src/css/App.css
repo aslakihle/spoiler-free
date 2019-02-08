@@ -24,6 +24,8 @@ a{
 
 
 
+
+
 /* ----------- */
 /* general_css */
 /* ----------- */
@@ -45,7 +47,6 @@ body > #root > div {
 .header {
   background: var(--darkGrey);
   color:var(--offWhite);
-  /* text-align: center; */
   padding: 1rem;
   grid-row-start: 1;
   grid-row-end: 1;
@@ -53,9 +54,6 @@ body > #root > div {
   display: grid;
   grid-template-columns: 14rem 1fr;
   align-items: center;
-}
-.header h1 {
-
 }
 
 .header span {
@@ -67,7 +65,6 @@ body > #root > div {
   display: inline-block;
   margin-right: 2rem;
 }
-
 
 .sidebar {
   background-color: var(--grey);
@@ -106,6 +103,8 @@ body > #root > div {
 
 
 
+
+
 /* -------- */
 /* wiki_css */
 /* -------- */
@@ -129,7 +128,6 @@ body > #root > div {
 }
 
 .prev-page-link {
-  /* text-decoration: underline; */
   color: var(--darkGrey);
   display: inline-block;
   background-color: var(--lightGrey);
@@ -181,10 +179,6 @@ body > #root > div {
   border-left: 3px solid var(--primaryColor) !important;
 }
 
-/* .progress-ul li:nth-child(-n+2) label {
-  background-color: red !important;
-} */
-
 .progress-checked {
   background-color: var(--darkGrey) !important;
   border-bottom: 1px solid var(--primaryColor) !important;
@@ -205,13 +199,8 @@ body > #root > div {
   color: var(--offWhite);
 }
 
-.accordion {
-
-}
-
 .accordion__item {
   cursor: pointer;
-  
 }
 
 .accordion__title {
@@ -221,7 +210,6 @@ body > #root > div {
   font-size: .7rem;
   background-color: var(--darkGrey);
   color: var(--offWhite);
-  
 }
 
 .accordion__title:focus {
@@ -235,7 +223,6 @@ body > #root > div {
 .accordion__title:hover .accordion__arrow::before, 
 .accordion__title:hover .accordion__arrow::after {
   background-color: var(--offWhite);
-  /* color: red !important; */
 }
 
 .accordion__body {
@@ -255,6 +242,7 @@ body > #root > div {
 .accordion__item {
     position: relative;
 }
+
 .accordion__arrow {
     display: inline-block;
     width: 24px;
@@ -262,7 +250,6 @@ body > #root > div {
     position: absolute;
     top: 1rem;
     right: .4rem;
-    /* color: #555; */
 }
 
 .accordion__arrow::after,
@@ -275,6 +262,7 @@ body > #root > div {
 .accordion__arrow::before {
     left: 6px;
 }
+
 .accordion__arrow::after {
     right: 6px;
 }
