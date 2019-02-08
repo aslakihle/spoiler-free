@@ -3,6 +3,7 @@ Current major todos:
 - Implement a add/edit system for the wiki (pretty cruicial for the site to actually serve a function)<br>
 - Backend. Currently using dummydata in state.
 - User system with login/register/profile page
+- Make the website respoisive(Currently only made for laptop/desktop)
 
 
 
