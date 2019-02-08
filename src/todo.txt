@@ -1,23 +1,5 @@
-Styling!
 
+active content in categories
 /wiki/12309102/123123 breaks it, make it check if IDs in URL exists else return error msg
 
-sidebar
--progress
- -100% wide radiobuttons to show progress
- -with save progress button for no missclick spoilers
--categories
- -get in categories for current bookseries
- -good arrodrian thing
 
-
-restructure header
-structure footer o.o
-
-
-
-
-
-Big boy changes: 
-Edit
-Database/backend 

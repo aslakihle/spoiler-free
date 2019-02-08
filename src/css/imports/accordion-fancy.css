@@ -38,7 +38,7 @@
     background-color: #ddd;
 }
 
-.accordion__body {
+/* .accordion__body {
     padding: 20px;
     display: block;
     animation: fadein 0.35s ease-in;
@@ -48,7 +48,7 @@
     display: none;
     opacity: 0;
     animation: fadein 0.35s ease-in;
-}
+} */
 
 .accordion__title > *:last-child,
 .accordion__body > *:last-child {

@@ -3,9 +3,14 @@ import Parser from 'html-react-parser';
 import PropTypes from 'prop-types';
 
 export class WikiContent extends Component {
+    componentDidMount() {
+        this.props.changeContent()
+    }
+    componentDidUpdate() {
+        this.props.changeContent()
+    }
 
     render() {
-        this.props.changeContent()
         return (
             <div>
                 <h2 data-book="1" className="text-content">{this.props.content[this.props.match.contentId].title}</h2>

@@ -10,7 +10,7 @@ export default function Wikis(props) {
     )
     return (
         <div className="content">
-            <h2>All Wikis</h2>
+            <h2>All</h2>
             {bookseries}
         </div>
     )

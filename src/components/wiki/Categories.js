@@ -71,6 +71,7 @@ export class Categories extends Component {
         )
         return (
             <span data-book="1" className="text-content">
+                <h4 className="category-title" >Topics</h4>
                 <Accordion accordion={false}>
                     {categoriesOutput}
                 </Accordion>

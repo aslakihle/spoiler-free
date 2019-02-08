@@ -2,20 +2,13 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer style={footerStyle} >
-            <h1>FOOTER</h1>
+        <footer className="footer" >
+            <p>Github repository: <a href="https://github.com/aslakihle/spoiler-free" target="_blank">Here</a></p>
+            <p>Copyright &copy; Aslak Ihle 2019</p>
         </footer>
     )
 }
-const footerStyle = {
-    background: '#333',
-    color: '#fff',
-    padding: '1rem',
-    width: '100%',
-    textAlign: 'center',
-    gridRowStart: '3',
-    gridRowEnd: '3',
-}
+
 
 
 export default (Footer)

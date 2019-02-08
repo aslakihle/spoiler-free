@@ -22,10 +22,7 @@ class Wiki extends Component {
 
     componentDidMount() {
         this.booksCurrentWiki(this.props.match.params.bookseries_id)
-        // this.getCurrentChecked()
-        // if (this.state.currentChecked < 1) {
         this.progressChange()
-        // }
     }
 
 
@@ -37,12 +34,27 @@ class Wiki extends Component {
                 currentBooks.push(book);
             }
         });
-        // console.log(currentBooks)
         this.setState({ currentBooks })
     }
 
-    progressChange = () => {
+    progressMouseEnter = (e) => {
+        const labels = document.querySelectorAll('.progress-ul li:nth-child(-n+' + e.target.id + ') label')
+        console.log(labels)
+        for (const label of labels) {
+            console.log(label)
+            label.classList.add('label-hover')
+        }
+    }
+    progressMouseLeave = (e) => {
+        const labels = document.querySelectorAll('.progress-ul li:nth-child(-n+' + e.target.id + ') label')
+        for (const label of labels) {
+            console.log(label)
+            label.classList.remove('label-hover')
+        }
+    }
 
+    // run every time the progress radios change, change state and run changeContent() in callback
+    progressChange = () => {
         const radios = document.getElementsByClassName('book');
         for (let radio of radios) {
             if (radio.checked) {
@@ -51,11 +63,15 @@ class Wiki extends Component {
                 }, () => {
                     for (let index = 1; index <= this.props.bookseries[0].books; index++) {
                         let label = document.getElementsByClassName('book' + index)[0]
+                        // console.log('progressChange() label: ')
+                        // console.log(label)
                         if (index <= this.state.currentChecked) {
-                            label.style.backgroundColor = '#325fa8';
+                            // label.style.backgroundColor = '#325fa8';
+                            label.classList.add('progress-checked')
                         }
                         else {
-                            label.style.backgroundColor = '#777';
+                            label.classList.remove('progress-checked')
+                            // label.style.backgroundColor = '#777';
                         }
                     }
                     this.changeContent()
@@ -65,10 +81,10 @@ class Wiki extends Component {
 
     }
 
+    // Change which content is shown based on the currentChecked state
     changeContent = () => {
         const spans = document.getElementsByClassName("text-content");
         for (let span of spans) {
-            console.log('in span for')
             if (span.dataset.book <= this.state.currentChecked) {
                 span.style.display = 'inline';
             }
@@ -81,59 +97,38 @@ class Wiki extends Component {
         }
     }
 
-    progressSubmit = (event) => {
-        // event.preventDefault();
-        // // console.log(document.getElementsByClassName('book'))
-        // const spans = document.getElementsByClassName("text-content");
-        // for (let span of spans) {
-        //     if (span.dataset.book <= this.state.currentChecked) {
-        //         span.style.display = 'inline';
-        //     }
-        //     else {
-        //         span.style.display = 'none';
-        //     }
-        // }
-        // if (this.state.currentChecked > 0) {
-        //     document.getElementById('no-checked').style.display = 'none';
-        // }
-    }
 
     render() {
-        // console.log(this.props.match)
         return (
             <div className="wrapper wiki-wrapper">
 
                 <div className="sidebar">
-                    {/* <ProgressSlider
-                        bookseries={this.props.bookseries}
-                        changeProgress={this.changeProgress}
-                    /> */}
                     <ProgressForm
                         bookseries={this.props.bookseries}
                         books={this.props.books}
                         currentWiki={this.props.match.params.bookseries_id}
                         currentBooks={this.state.currentBooks}
-                        // progressSubmit={this.progressSubmit}
                         progressChange={this.progressChange}
+                        progressMouseEnter={this.progressMouseEnter}
+                        progressMouseLeave={this.progressMouseLeave}
+
                     />
                     <Categories
                         bookseries={this.props.bookseries}
                         currentWiki={this.props.match.params.bookseries_id}
                         categories={this.props.categories}
                         content={this.props.content}
-
                     />
                 </div>
                 <div className="content">
-                    <Link className="prev-page-link" to="/wiki"> &lt;-- Back to all Wikis</Link>
-                    <p id="no-checked">Please input your progress in the sidebar to the left</p>
-                    {/* {Parser(this.props.content[0].code)} */}
+                    <Link className="prev-page-link" to="/wiki"> Back to all</Link>
+                    <p id="no-checked">Please input your progress and topic in the sidebar to the left</p>
                     <Route path={this.props.match.path + '/:contentId'}
                         render={({ match }) => (
                             <WikiContent
                                 content={this.props.content}
                                 match={match.params}
-                                changeContent={this.progressChange}
+                                changeContent={this.changeContent}
                             />
                         )} />
                 </div>
@@ -148,7 +143,8 @@ Wiki.propTypes = {
     categories: PropTypes.array.isRequired,
     content: PropTypes.array.isRequired,
     progressChange: PropTypes.func,
-    progressSubmit: PropTypes.func,
+    progressMouseEnter: PropTypes.func,
+    progressMouseLeave: PropTypes.func,
     match: PropTypes.object.isRequired,
     currentBooks: PropTypes.array,
     currentChecked: PropTypes.number,

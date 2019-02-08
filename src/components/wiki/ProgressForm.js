@@ -11,6 +11,9 @@ export default function ProgressForm(props) {
             bookseries={props.bookseries}
             currentWiki={props.currentWiki}
             progressChange={props.progressChange}
+            progressMouseEnter={props.progressMouseEnter}
+            progressMouseLeave={props.progressMouseLeave}
+
         />
 
     )
@@ -29,7 +32,8 @@ ProgressForm.propTypes = {
     bookseries: PropTypes.array.isRequired,
     books: PropTypes.array.isRequired,
     progressChange: PropTypes.func,
-    // progressSubmit: PropTypes.func,
+    progressMouseEnter: PropTypes.func,
+    progressMouseLeave: PropTypes.func,
     currentBooks: PropTypes.array,
     currentChecked: PropTypes.number,
 };

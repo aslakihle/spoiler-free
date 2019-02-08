@@ -1,0 +1,281 @@
+/* Import styles for accordion here so i can override them in this file*/
+@import './imports/accordion-fancy.css';
+@import './imports/vars.css';
+
+/* --------- */
+/* reset_css */
+/* --------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+/* ----------- */
+/* general_css */
+/* ----------- */
+
+/* Make the app height always be atleast 100% of the viewport height */
+body > #root > div {
+  height: 100vh;
+}
+
+.container {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 5rem 1fr 6rem;
+}
+
+.header {
+  background: var(--darkGrey);
+  color:var(--offWhite);
+  /* text-align: center; */
+  padding: 1rem;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  position: relative;
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  align-items: center;
+}
+.header h1 {
+
+}
+
+.header span {
+  color: var(--primaryColor);
+}
+
+.header-link {
+  color: var(--offWhite);
+  display: inline-block;
+  margin-right: 2rem;
+}
+
+
+.sidebar {
+  background-color: var(--grey);
+  border-right: 2px solid var(--darkGrey);
+  border-left: 2px solid var(--darkGrey);
+  border-top: 1px solid var(--primaryColor);
+}
+
+.content {
+  padding: 1rem;
+  background-color: var(--grey);
+  color: var(--offWhite);
+}
+
+.wrapper {
+  display: grid;
+}
+
+.footer {
+  background: var(--darkGrey);
+  color: var(--offWhite);
+  padding: 1rem;
+  width: 100%;
+  text-align: center;
+  grid-row-start: 3;
+  grid-row-end: 3;
+  display: grid;
+  align-items: end; 
+}
+
+.footer p a {
+  text-decoration: underline;
+  color: #7B94C3;
+}
+
+
+
+
+/* -------- */
+/* wiki_css */
+/* -------- */
+
+.wiki-wrapper {
+  grid-template-columns: 12rem 1fr;
+}
+
+/* Hide all text by default */
+.text-content {
+  display: none;
+}
+
+.wiki-button {
+  display: inline-block;
+  background-color: var(--darkGrey);
+  color: var(--primaryColor);
+  padding: .6rem;
+  margin-right: .5rem;
+  border-radius: .1rem;
+}
+
+.prev-page-link {
+  /* text-decoration: underline; */
+  color: var(--darkGrey);
+  display: inline-block;
+  background-color: var(--lightGrey);
+  padding: .3rem .5rem;
+  font-size: .8rem;
+  border-radius: .1rem;
+  position: relative;
+  bottom: .7rem;
+  right: .72rem;
+}
+
+
+
+
+
+
+/* progressInput-css */
+
+.progress-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.progress-ul li {
+  width: 100%;
+  text-align: center;
+}
+
+.progress-ul li:last-child {
+  margin-bottom: 1rem;
+}
+
+.progress-ul input {
+  display: none;
+}
+
+.progress-ul label {
+  background-color: var(--lightGrey);
+  color: var(--offWhite);
+  display: block;
+  padding: .2rem 0;
+  border-bottom: 1px solid var(--darkGrey);
+  cursor: pointer;
+  font-size: .8rem;
+}
+
+.label-hover {
+  border-left: 3px solid var(--primaryColor) !important;
+}
+
+/* .progress-ul li:nth-child(-n+2) label {
+  background-color: red !important;
+} */
+
+.progress-checked {
+  background-color: var(--darkGrey) !important;
+  border-bottom: 1px solid var(--primaryColor) !important;
+  border-left: 3px solid var(--primaryColor) !important;
+}
+
+.progress-label:hover {
+  background-color: var(--grey) !important;
+}
+
+
+
+
+
+/* category-css */
+
+.category-title {
+  color: var(--offWhite);
+}
+
+.accordion {
+
+}
+
+.accordion__item {
+  cursor: pointer;
+  
+}
+
+.accordion__title {
+  height: 2rem;
+  padding: .4rem;
+  margin: auto;
+  font-size: .7rem;
+  background-color: var(--darkGrey);
+  color: var(--offWhite);
+  
+}
+
+.accordion__title:focus {
+    outline: none !important;
+}
+
+.accordion__title:hover {
+    background-color: var(--primaryColorDark);
+
+}
+.accordion__title:hover .accordion__arrow::before, 
+.accordion__title:hover .accordion__arrow::after {
+  background-color: var(--offWhite);
+  /* color: red !important; */
+}
+
+.accordion__body {
+  padding: .5rem 1rem;
+  margin: auto;
+}
+
+.category-link {
+  display: block;
+  color: var(--offWhite);
+  text-decoration: underline;
+  text-decoration-color: var(--primaryColor);
+  font-size: .9rem;
+  padding: .06rem 0;
+}
+
+.accordion__item {
+    position: relative;
+}
+.accordion__arrow {
+    display: inline-block;
+    width: 24px;
+    height: 12px;
+    position: absolute;
+    top: 1rem;
+    right: .4rem;
+    /* color: #555; */
+}
+
+.accordion__arrow::after,
+.accordion__arrow::before {
+    width: 8px;
+    height: 2px;
+    background-color: var(--primaryColor);
+}
+
+.accordion__arrow::before {
+    left: 6px;
+}
+.accordion__arrow::after {
+    right: 6px;
+}
+
