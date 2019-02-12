@@ -19,6 +19,7 @@ export default function ProgressForm(props) {
     )
     return (
         <form onSubmit={props.progressSubmit} className="progress-form">
+            <h3 className="sidebar-title">Progress</h3>
             <ul className="progress-ul">
                 {radios}
             </ul>

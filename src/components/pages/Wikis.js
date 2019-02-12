@@ -1,15 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faBook } from '@fortawesome/free-solid-svg-icons'
+
 
 export default function Wikis(props) {
     const bookseries = props.bookseries.map((x) =>
-        <Link key={x.id} className="wiki-button" to={'wiki/' + x.id} >{x.title}</Link>
+        <Link key={'wikis-card' + x.id} className="wikis-card" to={'wiki/' + x.id}>
+            <h2>{x.title}</h2>
+            <p>{x.description}</p>
+            <h3>{x.author}</h3>
+            <h4><FontAwesomeIcon className="wikis-book-icon" icon="book" /> {x.books}</h4>
+        </Link>
     )
     return (
         <div className="content">
-            <h2>All</h2>
-            {bookseries}
+            <h1> Select book series</h1>
+            <div className="all-wikis-wrapper">
+                {bookseries}
+            </div>
         </div>
     )
 }

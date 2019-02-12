@@ -15,7 +15,7 @@ export class WikiContent extends Component {
     render() {
         return (
             <div>
-                <h2 data-book="1" className="text-content">{this.props.content[this.props.match.contentId].title}</h2>
+                <h2 data-book={this.props.content[this.props.match.contentId].bookData} className="text-content">{this.props.content[this.props.match.contentId].title}</h2>
                 {Parser(this.props.content[this.props.match.contentId].code)}
             </div>
         )

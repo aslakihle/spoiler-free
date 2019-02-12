@@ -5,7 +5,12 @@ export default function ProgressRadio(props) {
     return (
         <li>
             <input type="radio" id={props.book.number} name="book" className="book" value={'book' + props.book.number} onChange={props.progressChange} />
-            <label onMouseEnter={props.progressMouseEnter} onMouseLeave={props.progressMouseLeave} htmlFor={props.book.number} id={props.book.number} className={'progress-label progress-not-checked book' + props.book.number} >{props.book.title}</label>
+            <label onMouseEnter={props.progressMouseEnter} onMouseLeave={props.progressMouseLeave} htmlFor={props.book.number} id={props.book.number} className={'progress-label progress-not-checked book-label book' + props.book.number}>
+                {props.book.title}
+                <span id={props.book.number} className={"progress-checkbox check" + props.book.number}>
+                    <span></span>
+                </span>
+            </label>
         </li>
 
 

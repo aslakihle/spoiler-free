@@ -33,18 +33,15 @@ class Wiki extends Component {
 
     //Starts hover effect for progress input, effect happens on all books up to and including the hovered book
     progressMouseEnter = (e) => {
-        const labels = document.querySelectorAll('.progress-ul li:nth-child(-n+' + e.target.id + ') label')
-        console.log(labels)
+        const labels = document.querySelectorAll('.progress-ul li:nth-child(-n+' + e.currentTarget.id + ') label')
         for (const label of labels) {
-            console.log(label)
             label.classList.add('label-hover')
         }
     }
     //Ends hover effect from previous function
     progressMouseLeave = (e) => {
-        const labels = document.querySelectorAll('.progress-ul li:nth-child(-n+' + e.target.id + ') label')
+        const labels = document.querySelectorAll('.progress-ul li:nth-child(-n+' + e.currentTarget.id + ') label')
         for (const label of labels) {
-            console.log(label)
             label.classList.remove('label-hover')
         }
     }
@@ -57,16 +54,29 @@ class Wiki extends Component {
                 this.setState(state => {
                     state.currentChecked = radio.id;
                 }, () => {
-                    for (let index = 1; index <= this.props.bookseries[0].books; index++) {
-                        let label = document.getElementsByClassName('book' + index)[0]
-                        if (index <= this.state.currentChecked) {
+                    const labels = document.getElementsByClassName('book-label');
+                    const checkboxes = document.getElementsByClassName('progress-checkbox');
+                    for (const label of labels) {
+                        // label.classList.add('label-hover')
+                        if (label.id <= this.state.currentChecked) {
                             label.classList.add('progress-checked')
                         }
                         else {
                             label.classList.remove('progress-checked')
                         }
                     }
+                    for (const checkbox of checkboxes) {
+                        if (checkbox.id <= this.state.currentChecked) {
+                            checkbox.classList.add("progress-checkbox-checked")
+                            checkbox.firstChild.classList.add("progress-checkbox-mark")
+                        }
+                        else {
+                            checkbox.classList.remove("progress-checkbox-checked")
+                            checkbox.firstChild.classList.remove("progress-checkbox-mark")
+                        }
+                    }
                     this.changeContent()
+                    // this.props.updateCategories()
                 });
             }
         }
@@ -79,13 +89,14 @@ class Wiki extends Component {
         for (let span of spans) {
             if (span.dataset.book <= this.state.currentChecked) {
                 span.style.display = 'inline';
+
             }
             else {
                 span.style.display = 'none';
             }
-        }
-        if (this.state.currentChecked > 0) {
-            document.getElementById('no-checked').style.display = 'none';
+            if (this.state.currentChecked > 0) {
+                document.getElementById('no-checked').style.display = 'none';
+            }
         }
     }
 
@@ -108,11 +119,13 @@ class Wiki extends Component {
                         currentWiki={this.props.match.params.bookseries_id}
                         categories={this.props.categories}
                         content={this.props.content}
+                        currentChecked={this.state.currentChecked}
+                        updateCategories={this.updateCategories}
                     />
                 </div>
                 <div className="content">
                     <Link className="prev-page-link" to="/wiki"> Back to all</Link>
-                    <p id="no-checked">Please input your progress and topic in the sidebar to the left</p>
+                    <p id="no-checked">Select the books you have read and choose a topic</p>
                     <Route path={this.props.match.path + '/:contentId'}
                         render={({ match }) => (
                             <WikiContent
@@ -121,6 +134,7 @@ class Wiki extends Component {
                                 changeContent={this.changeContent}
                             />
                         )} />
+
                 </div>
             </div>
         )
@@ -138,6 +152,7 @@ Wiki.propTypes = {
     match: PropTypes.object.isRequired,
     currentBooks: PropTypes.array,
     currentChecked: PropTypes.number,
+    // updateCategories: PropTypes.func.isRequired,
 };
 
 export default Wiki

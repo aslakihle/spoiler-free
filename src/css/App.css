@@ -64,13 +64,25 @@ body > #root > div {
   color: var(--offWhite);
   display: inline-block;
   margin-right: 2rem;
+  /* justify-self: end; */
+  
+}
+
+.header-link-wrap {
+  justify-self: end;
 }
 
 .sidebar {
   background-color: var(--grey);
   border-right: 2px solid var(--darkGrey);
   border-left: 2px solid var(--darkGrey);
-  border-top: 1px solid var(--primaryColor);
+  /* border-top: 1px solid var(--primaryColor); */
+}
+
+.sidebar-title {
+  color: var(--offWhite);
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
 .content {
@@ -106,8 +118,154 @@ body > #root > div {
 
 
 /* -------- */
+/* home_css */
+/* -------- */
+
+.jumbotron {
+  margin: auto;
+  /* height: 15rem; */
+  background-color: var(--lightGrey);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;  
+  grid-template-rows: 2fr 1fr 3fr 2fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 2rem;
+  padding: 2rem;
+  width: 95%;
+  margin-top: 1rem;
+}
+
+.jumbotron h1 {
+  /* grid-row: ; */
+  grid-column: 1 / 3;
+  align-self: center;
+  justify-self: center;
+  font-size: 3rem;
+}
+.jumbo-text {
+  grid-column: 3 / 7;
+  align-self: end;
+  padding-bottom: .9rem;
+  font-size: 1.3rem;
+}
+
+.jumbo-text span {
+  color: var(--primaryColor)
+}
+
+.jumbo-card-title {
+  grid-column: 1 / 7;
+  align-self: end;
+  font-size: 1.3rem;
+}
+
+.jumbo-card {
+  background-color: var(--grey);
+  font-size: 1.3rem;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-left: 4rem;
+}
+
+.jumbo-card span {
+  position: absolute;
+  top: .4rem;
+  left: 10px;
+  font-size: 5rem;
+  z-index: 1;
+  color: var(--primaryColor)
+}
+
+.jumbo-card p {
+  align-self: center;
+}
+
+.jumbo-card1 {
+  grid-column: 1 / 3;
+}
+.jumbo-card2 {
+  grid-column: 3 / 5;
+}
+.jumbo-card3 {
+  grid-column: 5 / 7;
+}
+
+.jumbo-button {
+  display: block;
+  grid-column: 4 / 7;
+  background-color: var(--primaryColor);
+  border-radius: .2rem;
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem 0;
+  color: var(--darkGrey)
+  
+}
+
+
+
+
+
+
+
+
+/* -------- */
 /* wiki_css */
 /* -------- */
+
+.all-wikis-wrapper {
+  display: inline-grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 10rem;
+  grid-gap: 1rem;
+  padding: 1rem;
+}
+
+.wikis-card {
+  background-color: var(--darkGrey);
+  color: var(--offWhite);
+  padding: .5rem;
+  position: relative;
+  border-radius: .1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.wikis-card:hover {
+  opacity: 0.8;
+}
+
+.wikis-card h2 {
+  color: var(--primaryColor);
+}
+
+.wikis-card p {
+  margin-top: .7rem;
+}
+
+.wikis-card h3 {
+  font-size: 1.2rem;
+  position: absolute;
+  bottom: .3rem;
+  left: .7rem;
+}
+
+.wikis-card h4 {
+  position: absolute;
+  bottom: .3rem;
+  right: .7rem;
+  font-size: 2rem;
+  color: var(--offWhite)
+}
+
+
+.wikis-book-icon {
+  color: var(--primaryColorDark)
+}
+
+
+
 
 .wiki-wrapper {
   grid-template-columns: 12rem 1fr;
@@ -118,25 +276,26 @@ body > #root > div {
   display: none;
 }
 
-.wiki-button {
-  display: inline-block;
-  background-color: var(--darkGrey);
-  color: var(--primaryColor);
-  padding: .6rem;
-  margin-right: .5rem;
-  border-radius: .1rem;
+.text-content p {
+  margin-bottom: .7rem;
 }
 
+
+
 .prev-page-link {
-  color: var(--darkGrey);
+  color: var(--offWhite);
   display: inline-block;
-  background-color: var(--lightGrey);
+  background-color: var(--darkGrey);
   padding: .3rem .5rem;
   font-size: .8rem;
   border-radius: .1rem;
   position: relative;
   bottom: .7rem;
   right: .72rem;
+}
+
+.prev-page-link:hover {
+  opacity: 0.8;
 }
 
 
@@ -154,12 +313,13 @@ body > #root > div {
 
 .progress-ul li {
   width: 100%;
-  text-align: center;
+  
 }
 
-.progress-ul li:last-child {
-  margin-bottom: 1rem;
+.progress-ul li:first-child {
+  border-top: 1px solid var(--darkGrey) !important;
 }
+
 
 .progress-ul input {
   display: none;
@@ -169,35 +329,76 @@ body > #root > div {
   background-color: var(--lightGrey);
   color: var(--offWhite);
   display: block;
+  display: grid;
   padding: .2rem 0;
-  border-bottom: 1px solid var(--darkGrey);
+  border-bottom: 2px solid var(--darkGrey);
   cursor: pointer;
   font-size: .8rem;
+  position: relative;
+  padding-left: 1.4rem;
 }
 
-.label-hover {
-  border-left: 3px solid var(--primaryColor) !important;
-}
 
 .progress-checked {
   background-color: var(--darkGrey) !important;
-  border-bottom: 1px solid var(--primaryColor) !important;
-  border-left: 3px solid var(--primaryColor) !important;
+  border-bottom: 2px solid var(--primaryColor) !important;
+  /* border-left: 3px solid var(--primaryColor) !important; */
+}
+
+.label-hover {
+  /* border-left: 3px solid var(--primaryColor) !important; */
+  border-bottom: 2px solid var(--primaryColor) !important;
+  /* background-color: var(--grey) !important; */
+}
+
+.progress-label:hover .progress-checkbox {
+  /* background-color: var(--lightGrey) !important; */
+}
+.label-hover .progress-checkbox {
+  background-color: var(--primaryColor) !important;
 }
 
 .progress-label:hover {
-  background-color: var(--grey) !important;
+  /* background-color: var(--grey) !important; */
 }
 
+.progress-label:hover .progress-checkbox span {
+  /* border-color: var(--primaryColor) */
+}
+
+
+.progress-checkbox {
+  position: absolute;
+  top: .2rem;
+  left: .2rem;
+  height: 1rem;
+  width: 1rem;
+  background-color: var(--grey);
+  align-self: center
+}
+
+.progress-checkbox-checked {
+  background-color: var(--primaryColor) !important;
+}
+
+.progress-checkbox-mark {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
 
 
 
 
 /* category-css */
-
-.category-title {
-  color: var(--offWhite);
-}
 
 .accordion__item {
   cursor: pointer;

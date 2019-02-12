@@ -11,6 +11,8 @@ import 'react-accessible-accordion/dist/minimal-example.css';
 
 export class Categories extends Component {
 
+
+
     // Returns array with all the category data needed for the current bookseries
     getCategoriesForCurrent = () => {
         let currentCategories = []
@@ -33,15 +35,16 @@ export class Categories extends Component {
         let bodyContent = []
         this.props.content.forEach(c => {
             if (c.bookseries_id === parseInt(this.props.currentWiki) && c.category === category_id) {
-                bodyContent.push([c.id, c.title])
+                bodyContent.push([c.id, c.title, c.bookData])
             }
         });
         return bodyContent
     }
 
+
     render() {
         const categoriesOutput = this.getCategoriesForCurrent().map((category) =>
-            <AccordionItem key={category[0]}>
+            <AccordionItem key={'category' + category[0]}>
                 <AccordionItemTitle>
                     <h3>{category[1]}</h3>
                     <div className="accordion__arrow" role="presentation" />
@@ -49,15 +52,15 @@ export class Categories extends Component {
                 <AccordionItemBody>
                     {
                         this.getBodyContentForCurrent(category[0]).map((bodyContent) =>
-                            <Link className="category-link" key={bodyContent[0]} to={'/wiki/' + this.props.currentWiki + '/' + bodyContent[0]}>{bodyContent[1]}</Link>
+                            <span key={bodyContent[0]} data-book={bodyContent[2]} className="text-content" ><Link className="category-link" to={'/wiki/' + this.props.currentWiki + '/' + bodyContent[0]}>{bodyContent[1]}</Link></span>
                         )
                     }
                 </AccordionItemBody>
-            </AccordionItem>
+            </AccordionItem >
         )
         return (
             <span data-book="1" className="text-content">
-                <h4 className="category-title" >Topics</h4>
+                <h4 className="sidebar-title" >Topics</h4>
                 <Accordion accordion={false}>
                     {categoriesOutput}
                 </Accordion>
@@ -73,5 +76,6 @@ Categories.propTypes = {
     bookseries: PropTypes.array.isRequired,
     categories: PropTypes.array.isRequired,
     currentWiki: PropTypes.string.isRequired,
+    // updateCategories: PropTypes.func.isRequired,
 
 };
