@@ -38,6 +38,7 @@ export class Categories extends Component {
                 bodyContent.push([c.id, c.title, c.bookData])
             }
         });
+        // console.log(bodyContent)
         return bodyContent
     }
 

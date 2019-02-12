@@ -12,11 +12,25 @@ export class WikiContent extends Component {
         this.props.changeContent()
     }
 
+
+    // Get the current content for content output
+    getCurrentContent = () => {
+        let currentContent = []
+        this.props.content.forEach(c => {
+            if (c.id === parseInt(this.props.match.contentId)) {
+                console.log(c)
+                currentContent = c
+            }
+        })
+        return currentContent
+    }
+
+
     render() {
         return (
             <div>
-                <h2 data-book={this.props.content[this.props.match.contentId].bookData} className="text-content">{this.props.content[this.props.match.contentId].title}</h2>
-                {Parser(this.props.content[this.props.match.contentId].code)}
+                <h2 data-book={this.getCurrentContent().bookData} className="text-content">{this.getCurrentContent().title}</h2>
+                {Parser(this.getCurrentContent().code)}
             </div>
         )
 

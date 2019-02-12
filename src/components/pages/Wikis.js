@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export default function Wikis(props) {
-    const bookseries = props.bookseries.map((x) =>
-        <Link key={'wikis-card' + x.id} className="wikis-card" to={'wiki/' + x.id}>
-            <h2>{x.title}</h2>
-            <p>{x.description}</p>
-            <h3>{x.author}</h3>
-            <h4><FontAwesomeIcon className="wikis-book-icon" icon="book" /> {x.books}</h4>
+    const bookseries = props.bookseries.map((bookserie) =>
+        <Link key={'wikis-card' + bookserie.id} className="wikis-card" to={'wiki/' + bookserie.id}>
+            <h2>{bookserie.title}</h2>
+            <p>{bookserie.description}</p>
+            <h3>{bookserie.author}</h3>
+            <h4><FontAwesomeIcon className="wikis-book-icon" icon="book" /> {bookserie.books}</h4>
         </Link>
     )
     return (
