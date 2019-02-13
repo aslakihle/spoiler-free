@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+// import { hashHistory } from 'react-router';
+// import {  createBrowserHistory,  createHashHistory,  createMemoryHistory} from 'history'
 import './css/App.css';
 import Header from './components/layout/Header';
 import About from './components/pages/About';

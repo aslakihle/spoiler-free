@@ -15,7 +15,6 @@ Smaller todos/issues:
 - Proper fonts, and implementation
 - /wiki/123/123 currently breaks the page, there are no checks if the URL parameters exist in 'database', only occurs if you edit URL
 - Add active/current both in header links and for topics
-- If you write /wiki/ in the live version it does not load, and does not return nomatch component, just standard error
 
 
 
